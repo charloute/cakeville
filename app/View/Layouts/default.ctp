@@ -30,6 +30,7 @@ $cakeDescription = __d('/', 'cakeville');
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('cake.generic');
+		echo $this->Html->css('style');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
