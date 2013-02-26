@@ -14,7 +14,7 @@
 		<td>
 			<?php echo $this->Html->link($message['User']['username'], array('controller' => 'users', 'action' => 'view', $message['User']['id'])); ?>
 		</td>
-		<td><?php echo h($message['Message']['dest_id']); ?>&nbsp;</td>
+		<td><?php echo h($message['Dest']['username']); ?>&nbsp;</td>
 		<td><?php echo h($message['Message']['content']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $message['Message']['id'])); ?>
