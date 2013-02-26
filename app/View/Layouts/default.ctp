@@ -16,7 +16,7 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-$cakeDescription = __d('/', 'cakeville');
+$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,9 +40,20 @@ $cakeDescription = __d('/', 'cakeville');
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, '/'); ?></h1>
+			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
+			
+			
 		</div>
 		<div id="content">
+		<?php if($me['id']>0): ?>
+				
+				<?php echo $this->Html->link('logout', '/users/logout') ?>
+				
+				<?php else: ?>
+				
+				<?php echo $this->Html->link('login', '/users/login') ?>
+				
+			<?php endif; ?>
 
 			<?php echo $this->Session->flash(); ?>
 
@@ -57,6 +68,7 @@ $cakeDescription = __d('/', 'cakeville');
 			?>
 		</div>
 	</div>
+	
 	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>
