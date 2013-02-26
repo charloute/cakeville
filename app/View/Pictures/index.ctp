@@ -12,7 +12,7 @@
 		<td><?php echo h($picture['Picture']['id']); ?>&nbsp;</td>
 		<td><?php echo h($picture['Picture']['url']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($picture['User']['name'], array('controller' => 'users', 'action' => 'view', $picture['User']['id'])); ?>
+			<?php echo $this->Html->link($picture['User']['username'], array('controller' => 'users', 'action' => 'view', $picture['User']['id'])); ?>
 		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $picture['Picture']['id'])); ?>

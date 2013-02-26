@@ -8,7 +8,7 @@
 		</dd>
 		<dt><?php echo __('Name'); ?></dt>
 		<dd>
-			<?php echo h($user['User']['name']); ?>
+			<?php echo h($user['User']['username']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Age'); ?></dt>
@@ -23,7 +23,7 @@
 		</dd>
 		<dt><?php echo __('Group'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($user['Group']['name'], array('controller' => 'groups', 'action' => 'view', $user['Group']['id'])); ?>
+			<?php echo $this->Html->link($user['Group']['username'], array('controller' => 'groups', 'action' => 'view', $user['Group']['id'])); ?>
 			&nbsp;
 		</dd>
 	</dl>

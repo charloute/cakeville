@@ -12,7 +12,7 @@
 	<tr>
 		<td><?php echo h($message['Message']['id']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($message['User']['name'], array('controller' => 'users', 'action' => 'view', $message['User']['id'])); ?>
+			<?php echo $this->Html->link($message['User']['username'], array('controller' => 'users', 'action' => 'view', $message['User']['id'])); ?>
 		</td>
 		<td><?php echo h($message['Message']['dest_id']); ?>&nbsp;</td>
 		<td><?php echo h($message['Message']['content']); ?>&nbsp;</td>

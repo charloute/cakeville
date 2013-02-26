@@ -41,7 +41,7 @@
 		foreach ($movie['User'] as $user): ?>
 		<tr>
 			<td><?php echo $user['id']; ?></td>
-			<td><?php echo $user['name']; ?></td>
+			<td><?php echo $user['username']; ?></td>
 			<td><?php echo $user['age']; ?></td>
 			<td><?php echo $user['sexe']; ?></td>
 			<td><?php echo $user['group_id']; ?></td>

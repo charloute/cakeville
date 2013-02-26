@@ -7,6 +7,59 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
 
+	public function beforeFilter() {
+		parent::beforeFilter();
+		$this->Auth->allow('add');
+	}
+
+	public function isAuthorized($user) {
+		
+		if($this->action == 'login'){
+			return true;
+		}
+		if($this->action == 'logout'){
+			return true;
+		}
+		
+		if($this->action == 'edit'){
+			$user_id = $this->request->params['pass'][0];
+			$me_id = $this->Auth->user('id');
+			
+			if($me_id == $user_id){
+				return true;
+			}
+			else{
+				$this->Session->setFlash('Sale Hacker de merde!');
+			}
+			
+		}
+		
+		if($this->action == 'delete'){
+			return false;
+		}
+		return parent::isAuthorized($user);
+		
+	}
+	
+	
+	
+	public function login() {
+		if ($this->request->is('post')) {
+        	if ($this->Auth->login()) {
+            	$this->redirect($this->Auth->redirect());
+            } else {
+            	$this->Session->setFlash(__('Invalid password, try again !'));
+            }
+        }
+		
+	}
+	
+	public function logout() {
+		
+           $this->Session->setFlash(__('Bye bye!'));
+           $this->redirect($this->Auth->logout());
+    }
+
 /**
  * index method
  *

@@ -3,7 +3,7 @@
 	<fieldset>
 		<legend><?php echo __('Admin Add User'); ?></legend>
 	<?php
-		echo $this->Form->input('name');
+		echo $this->Form->input('username');
 		echo $this->Form->input('age');
 		echo $this->Form->input('sexe');
 		echo $this->Form->input('group_id');

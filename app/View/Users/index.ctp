@@ -3,7 +3,7 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('name'); ?></th>
+			<th><?php echo $this->Paginator->sort('username'); ?></th>
 			<th><?php echo $this->Paginator->sort('age'); ?></th>
 			<th><?php echo $this->Paginator->sort('sexe'); ?></th>
 			<th><?php echo $this->Paginator->sort('group_id'); ?></th>
@@ -12,7 +12,7 @@
 	<?php foreach ($users as $user): ?>
 	<tr>
 		<td><?php echo h($user['User']['id']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['name']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['username']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['age']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['sexe']); ?>&nbsp;</td>
 		<td>
