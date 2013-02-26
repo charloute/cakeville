@@ -135,6 +135,7 @@
 			}
 		</style>
 		<link rel="stylesheet" type="text/css" href="<?php echo $baseDir; ?>css/cake.generic.css" />
+	
 	</head>
 	<body>
 		<div id="container">
