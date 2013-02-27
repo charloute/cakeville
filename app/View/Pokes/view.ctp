@@ -11,11 +11,12 @@
 			<?php echo $this->Html->link($poke['User']['username'], array('controller' => 'users', 'action' => 'view', $poke['User']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Dest Id'); ?></dt>
+		<dt><?php echo __('Dest'); ?></dt>
 		<dd>
-			<?php echo h($poke['Poke']['dest_id']); ?>
+			<?php echo $this->Html->link($poke['Dest']['username'], array('controller' => 'users', 'action' => 'view', $poke['Dest']['id'])); ?>
 			&nbsp;
 		</dd>
+
 		<dt><?php echo __('Created'); ?></dt>
 		<dd>
 			<?php echo h($poke['Poke']['created']); ?>

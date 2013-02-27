@@ -9,18 +9,25 @@
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($pokes as $poke): ?>
+		<?php if($me['id']==$poke['Poke']['dest_id']){?>
 	<tr>
 		<td><?php echo h($poke['Poke']['id']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($poke['User']['username'], array('controller' => 'users', 'action' => 'view', $poke['User']['id'])); ?>
 		</td>
-		<td><?php echo h($poke['Poke']['dest_id']); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($poke['Dest']['username'], array('controller' => 'dests', 'action' => 'view', $poke['Dest']['id'])); ?>
+		</td>
+		
 		<td><?php echo h($poke['Poke']['created']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $poke['Poke']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $poke['Poke']['id'])); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $poke['Poke']['id']), null, __('Are you sure you want to delete # %s?', $poke['Poke']['id'])); ?>
 		</td>
+		<?php };
+		?>
+	
 	</tr>
 <?php endforeach; ?>
 	</table>

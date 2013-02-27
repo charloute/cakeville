@@ -2,20 +2,57 @@
 App::uses('AppController', 'Controller');
 /**
  * Pokes Controller
- *
+ *''
  * @property Poke $Poke
  */
 class PokesController extends AppController {
 
-/**
- * admin_index method
- *
- * @return void
- */
-	public function admin_index() {
-		$this->Poke->recursive = 0;
-		$this->set('pokes', $this->paginate());
-	}
+	/**
+	 * admin_index method
+	 *
+	 * @return void
+	 */
+		public function index() {
+			$this->Poke->recursive = 0;
+			$this->set('pokes', $this->paginate());
+		}
+	
+	
+	/**
+	 * add method
+	 *
+	 * @return void
+	 */
+		public function add() {
+			if ($this->request->is('post')) {
+				$this->Poke->create();
+				if ($this->Poke->save($this->request->data)) {
+					$this->Session->setFlash(__('The POKE has been saved'));
+					$this->redirect(array('action' => 'index'));
+				} else {
+					$this->Session->setFlash(__('The game could not be saved. Please, try again.'));
+				}
+			}
+			$users = $this->Poke->User->find('list');
+			$this->set(compact('users'));
+
+		}
+
+		/**
+		 * admin_view method
+		 *
+		 * @throws NotFoundException
+		 * @param string $id
+		 * @return void
+		 */
+			public function admin_view($id = null) {
+				if (!$this->Poke->exists($id)) {
+					throw new NotFoundException(__('Invalid poke'));
+				}
+				$options = array('conditions' => array('Poke.' . $this->Poke->primaryKey => $id));
+				$this->set('poke', $this->Poke->find('first', $options));
+			}
+
 
 /**
  * admin_view method
@@ -24,7 +61,7 @@ class PokesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function admin_view($id = null) {
+	public function view($id = null) {
 		if (!$this->Poke->exists($id)) {
 			throw new NotFoundException(__('Invalid poke'));
 		}
