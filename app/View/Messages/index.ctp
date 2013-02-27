@@ -92,6 +92,7 @@
 				<? } ?>
 			<?php } ?>
 		<?php endforeach; ?>
+	</ul>
 		
 		
 	<h3><?php echo __('Actions'); ?></h3>

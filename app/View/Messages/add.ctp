@@ -1,6 +1,7 @@
 <div class="messages form">
 	
 	
+	
 <?php echo $this->Form->create('Message'); ?>
 	<fieldset>
 		<legend><?php echo __('Add Message'); ?></legend>

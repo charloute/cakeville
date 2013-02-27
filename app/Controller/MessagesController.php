@@ -7,6 +7,74 @@ App::uses('AppController', 'Controller');
  */
 class MessagesController extends AppController {
 
+
+
+	public function usermessages($id) {
+			$connectedid = $this->Auth->user('id');
+
+		$this->Message->recursive = 0;
+		//$this->set('messages', $this->paginate(array('Message.user_id'=>$id,array(
+		//'conditions' => array('Message.user_receiver_id'=> $connectedid)))));
+
+
+
+		// OR AND CONDITION VARIABLE
+		$orcondition = $this->Message->find('all',array(
+			'conditions' => array('OR' => array(
+				array('AND' => array(
+					array('Message.user_id'=> $id),
+					array('Message.dest_id'=> $connectedid)
+					)
+				),
+				array('AND' => array(
+					array('Message.user_id'=> $connectedid),
+					array('Message.dest_id'=> $id)
+					)
+				)
+			)),
+			'order' => array('Message.date DESC')
+		) );
+
+		$this->set('messages', $orcondition);
+
+
+	//debug($orcondition);
+	//$this->render("index");
+	}
+
+
+
+
+
+
+
+
+/**
+* inbox method
+*
+* @return void
+*/
+	public function inbox() {
+		$connectedid = $this->Auth->user('id');
+
+
+
+		$this->Message->recursive = 0;
+		
+
+		$data = $this->Message->find('all',array(
+		'conditions' => array('OR' => array(
+			array('Message.dest_id'=> $connectedid),
+			)),
+			'group' => array('Message.user_id','Message.dest_id'),
+			'order' => array('Message.date DESC')
+		));
+
+		$this->set('messages', $data);
+	}
+
+
+
 /**
  * index method
  *
@@ -38,11 +106,14 @@ class MessagesController extends AppController {
  * @return void
  */
 	public function add() {
+		
 		if ($this->request->is('post')) {
 			$this->Message->create();
 			
 			$this->request->data['Message']['user_id'] = $this->Auth->user('id');
 			$this->request->data['Message']['date'] = DboSource::expression('NOW()');
+			
+			
 			
 			if ($this->Message->save($this->request->data)) {
 				$this->Session->setFlash(__('Message envoyé !'));
@@ -53,7 +124,7 @@ class MessagesController extends AppController {
 		}
 		
 		$users = $this->Message->User->find('list');
-		$dests = $this->Message->User->find('list');
+		$dests = $this->Message->Dest->find('list');
 		$this->set(compact('users', 'dests'));
 	}
 
