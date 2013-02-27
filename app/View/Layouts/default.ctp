@@ -36,7 +36,18 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<div class="navbar navbar-inverse">
 					<div class="navbar-inner">
 						<div class="container">
-							<h3><a href="#">Title</a></h3>
+							
+							<h3><a href="#">CakeVille</a>	</h3> 	<?php if($me['id']>0): ?>
+
+										<?php echo $this->Html->link('logout', '/users/logout') ?>
+
+										<?php else: ?>
+
+										<?php echo $this->Html->link('login', '/users/login') ?>
+
+									<?php endif; ?>
+						
+							
 								<div class="nav-collapse collapse">	
 									<ul class="nav">
 								<li><?php echo $this->Html->link(__('New User'), array('action' => 'add')); ?></li>
@@ -110,16 +121,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		</div>
 			<div id="container">
 		<div id="content">
-				<?php if($me['id']>0): ?>
-
-						<?php echo $this->Html->link('logout', '/users/logout') ?>
-
-						<?php else: ?>
-
-						<?php echo $this->Html->link('login', '/users/login') ?>
-
-					<?php endif; ?>
-	
+			
 
 			<?php echo $this->Session->flash(); ?>
 
