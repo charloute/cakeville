@@ -24,7 +24,7 @@ class PokesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function admin_view($id = null) {
+	public function view($id = null) {
 		if (!$this->Poke->exists($id)) {
 			throw new NotFoundException(__('Invalid poke'));
 		}
@@ -58,7 +58,7 @@ class PokesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function admin_edit($id = null) {
+	public function edit($id = null) {
 		if (!$this->Poke->exists($id)) {
 			throw new NotFoundException(__('Invalid poke'));
 		}

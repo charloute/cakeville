@@ -34,6 +34,13 @@ class User extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+		'Gender' => array(
+			'className' => 'Gender',
+			'foreignKey' => 'sexe_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
 

@@ -130,12 +130,13 @@ class UsersController extends AppController {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
 			$this->request->data = $this->User->find('first', $options);
 		}
+		$genders = $this->User->Gender->find('list');
 		$groups = $this->User->Group->find('list');
 		$movies = $this->User->Movie->find('list');
 		$games = $this->User->Game->find('list');
 		$hobbies = $this->User->Hobby->find('list');
 		
-		$this->set(compact('groups', 'movies', 'games', 'hobbies'));
+		$this->set(compact('groups', 'movies', 'games', 'hobbies', 'genders'));
 	}
 
 /**
