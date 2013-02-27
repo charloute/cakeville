@@ -1,8 +1,14 @@
 <div class="pictures view">
+
 <h2><?php  echo __('Picture'); ?></h2>
+<div><img src="/cakeville/files/<?php echo $picture['Picture']['url']; ?>" width="250px" height="250px"></div>
+
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
+		
+				
+
 			<?php echo h($picture['Picture']['id']); ?>
 			&nbsp;
 		</dd>
