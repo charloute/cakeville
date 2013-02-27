@@ -1,9 +1,16 @@
+
+<?php debug($user); ?>
 <div class="users view">
 <h2><?php  echo __('User'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['id']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Photo du profil'); ?></dt>
+		<dd>
+			 <img src="<?php echo $this->webroot; ?>files/<?php echo $user['Pic']['url']; ?>" width="250px" height="250px"> 
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Name'); ?></dt>

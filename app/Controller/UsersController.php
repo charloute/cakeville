@@ -137,6 +137,13 @@ class UsersController extends AppController {
 		
 		$this->set(compact('groups', 'movies', 'games', 'hobbies'));
 	}
+	
+	public function profil_picture($id=null){
+	
+		$this->User->id=$this->Auth->user('id');
+		$this->User->save(array('User'=>array('picture_id'=>$id)));
+		$this->redirect(array('action' => 'view',$this->Auth->user('id')));
+	}
 
 /**
  * delete method
