@@ -12,7 +12,7 @@ class PokesController extends AppController {
  *
  * @return void
  */
-	public function admin_index() {
+	public function index() {
 		$this->Poke->recursive = 0;
 		$this->set('pokes', $this->paginate());
 	}
@@ -37,7 +37,7 @@ class PokesController extends AppController {
  *
  * @return void
  */
-	public function admin_add() {
+	public function add() {
 		if ($this->request->is('post')) {
 			$this->Poke->create();
 			if ($this->Poke->save($this->request->data)) {
