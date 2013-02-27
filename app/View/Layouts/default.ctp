@@ -83,10 +83,12 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 								</ul>
 								</li>
 									<li class="dropdown"> 
-										<a class="dropdown-toggle" data-toggle="dropdown">Revue<b class="caret"></b></a>
+										<a class="dropdown-toggle" data-toggle="dropdown">Revue/Ad<b class="caret"></b></a>
 									<ul class="dropdown-menu">
 								<li><?php echo $this->Html->link(__('New Revue'), array('controller' => 'revues', 'action' => 'add')); ?></li>
 								<li><?php echo $this->Html->link(__('List Revues'), array('controller' => 'revues', 'action' => 'index')); ?></li>
+										<li><?php echo $this->Html->link(__('New Ad'), array('controller' => 'ads', 'action' => 'add')); ?></li>
+										<li><?php echo $this->Html->link(__('List Ads'), array('controller' => 'ads', 'action' => 'index')); ?></li>
 								</ul>
 								</li>
 								<li class="dropdown"> 
