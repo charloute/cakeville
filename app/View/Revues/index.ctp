@@ -5,6 +5,8 @@
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('date'); ?></th>
 			<th><?php echo $this->Paginator->sort('title'); ?></th>
+		
+			
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($revues as $revue): ?>
@@ -12,6 +14,9 @@
 		<td><?php echo h($revue['Revue']['id']); ?>&nbsp;</td>
 		<td><?php echo h($revue['Revue']['date']); ?>&nbsp;</td>
 		<td><?php echo h($revue['Revue']['title']); ?>&nbsp;</td>
+		
+		
+		
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $revue['Revue']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $revue['Revue']['id'])); ?>
@@ -33,12 +38,4 @@
 		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Revue'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Ads'), array('controller' => 'ads', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Ad'), array('controller' => 'ads', 'action' => 'add')); ?> </li>
-	</ul>
 </div>

@@ -169,9 +169,3 @@
 	</table>
 <?php endif; ?>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Hobby'), array('controller' => 'hobbies', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
-</div>

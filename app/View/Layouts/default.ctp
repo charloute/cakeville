@@ -103,7 +103,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 								</ul>
 								</li>
 								<li class="dropdown"> 
-									<a class="dropdown-toggle" data-toggle="dropdown">Poke<b class="caret"></b></a>
+									<a class="dropdown-toggle" data-toggle="dropdown">Pokes<b class="caret"></b></a>
 								<ul class="dropdown-menu">
 							<li><?php echo $this->Html->link(__('New Poke'), array('controller' => 'pokes', 'action' => 'add')); ?></li>
 							<li><?php echo $this->Html->link(__('List Pokes'), array('controller' => 'pokes', 'action' => 'index')); ?></li>
