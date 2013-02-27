@@ -51,7 +51,7 @@
  */
 	Configure::write('Error', array(
 		'handler' => 'ErrorHandler::handleError',
-		'level' => E_ALL & ~E_DEPRECATED & ~E_STRICT,
+		'level' => E_ALL & ~E_DEPRECATED,
 		'trace' => true
 	));
 
@@ -191,12 +191,12 @@ Configure::write('Routing.prefixes', array('admin'));
 /**
  * A random string used in security hashing methods.
  */
-	Configure::write('Security.salt', 'UYsG16ZsjjHHlPaNabwvacqpamMaj8jajN62swk9');
+	Configure::write('Security.salt', 'odnvpzbpbvpabpeivba');
 
 /**
  * A random numeric string (digits only) used to encrypt/decrypt strings.
  */
-	Configure::write('Security.cipherSeed', '19201918100929525761421672731');
+	Configure::write('Security.cipherSeed', '2045704802857024');
 
 /**
  * Apply timestamps with the last modified time to static assets (js, css, images).
