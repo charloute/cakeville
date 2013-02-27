@@ -26,6 +26,12 @@ class PokesController extends AppController {
 		public function add() {
 			if ($this->request->is('post')) {
 				$this->Poke->create();
+				
+				$this->request->data['Poke']['user_id'] = $this->Auth->user('id');
+				
+				
+				
+				
 				if ($this->Poke->save($this->request->data)) {
 					$this->Session->setFlash(__('The POKE has been saved'));
 					$this->redirect(array('action' => 'index'));
@@ -34,7 +40,10 @@ class PokesController extends AppController {
 				}
 			}
 			$users = $this->Poke->User->find('list');
-			$this->set(compact('users'));
+			$dests = $this->Poke->Dest->find('list');
+			$this->set(compact('users','dests'));
+			
+			
 
 		}
 

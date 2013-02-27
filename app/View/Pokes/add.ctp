@@ -2,8 +2,7 @@
 <?php echo $this->Form->create('Poke'); ?>
 	<fieldset>
 		<legend><?php echo __('Add Poke'); ?></legend>
-	<?php
-		echo $this->Form->input('user_id');
+		<?php
 		echo $this->Form->input('dest_id');
 	?>
 	</fieldset>
