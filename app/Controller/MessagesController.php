@@ -40,15 +40,21 @@ class MessagesController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Message->create();
+			
+			$this->request->data['Message']['user_id'] = $this->Auth->user('id');
+			$this->request->data['Message']['date'] = DboSource::expression('NOW()');
+			
 			if ($this->Message->save($this->request->data)) {
-				$this->Session->setFlash(__('The message has been saved'));
+				$this->Session->setFlash(__('Message envoyé !'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The message could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('Une erreur s\'est produite, veuillez ré-essayer.'));
 			}
 		}
+		
 		$users = $this->Message->User->find('list');
-		$this->set(compact('users'));
+		$dests = $this->Message->User->find('list');
+		$this->set(compact('users', 'dests'));
 	}
 
 /**

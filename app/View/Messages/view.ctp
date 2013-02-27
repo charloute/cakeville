@@ -1,5 +1,4 @@
 <div class="messages view">
-<?php debug($message); ?>
 
 <h2><?php  echo __('Message'); ?></h2>
 	<dl>
@@ -10,12 +9,12 @@
 		</dd>
 		<dt><?php echo __('User'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($message['User']['name'], array('controller' => 'users', 'action' => 'view', $message['User']['id'])); ?>
+			<?php echo $this->Html->link($message['User']['username'], array('controller' => 'users', 'action' => 'view', $message['User']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Dest'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($message['Dest']['name'], array('controller' => 'users', 'action' => 'view', $message['Dest']['id'])); ?>
+			<?php echo $this->Html->link($message['Dest']['username'], array('controller' => 'users', 'action' => 'view', $message['Dest']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Content'); ?></dt>

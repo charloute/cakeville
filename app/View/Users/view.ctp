@@ -63,9 +63,10 @@
 		foreach ($user['Message'] as $message): ?>
 		<tr>
 			<td><?php echo $message['id']; ?></td>
-			<td><?php echo $message['user_id']; ?></td>
+			<td><?php echo $user['User']['username']; ?></td>
 			<td><?php echo $message['dest_id']; ?></td>
 			<td><?php echo $message['content']; ?></td>
+			
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'messages', 'action' => 'view', $message['id'])); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'messages', 'action' => 'edit', $message['id'])); ?>
@@ -76,9 +77,13 @@
 	</table>
 <?php endif; ?>
 
+
+	
+
 	<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('New Message'), array('controller' => 'messages', 'action' => 'add')); ?> </li>
+			<li><?php echo $this->Html->link(__('Messages'), array('controller' => 'messages', 'action' => 'index')); ?> </li>
 		</ul>
 	</div>
 </div>
