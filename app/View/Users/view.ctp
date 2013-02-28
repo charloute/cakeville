@@ -1,39 +1,35 @@
 
-<?php debug($user); ?>
+
 <div class="users view">
-<h2><?php  echo __('User'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Photo du profil'); ?></dt>
-		<dd>
-			 <img src="<?php echo $this->webroot; ?>files/<?php echo $user['Pic']['url']; ?>" width="250px" height="250px"> 
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Name'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['username']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Age'); ?></dt>
-		<dd>
+<h2><?php echo h($user['User']['username']); ?></h2>
+	
+		
+		
+<img src="<?php echo $this->webroot; ?>files/<?php echo $user['Pic']['url']; ?>" width="250px" height="250px"> 
+			
+<div class="infos">		
+	<p>
+		<?php echo __('Age:'); ?>
+		
 			<?php echo h($user['User']['age']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Sexe'); ?></dt>
-		<dd>
+	</p>		
+	<p>	
+		<?php echo __('Sexe:'); ?>
+		
 			<?php echo h($user['User']['sexe']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Group'); ?></dt>
-		<dd>
+	</p>		
+	<p>	
+		<?php echo __('Groupe:'); ?>
+		
 			<?php echo $this->Html->link($user['Group']['name'], array('controller' => 'groups', 'action' => 'view', $user['Group']['id'])); ?>
-			&nbsp;
-		</dd>
-	</dl>
+	</p>
+	
+	<p>
+	<?php echo $this->Html->link(__('Voir mes photos'), array('controller' => 'pictures', 'action' => 'index')); ?> 
+	</p>
+			
+</div>		
+	
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>

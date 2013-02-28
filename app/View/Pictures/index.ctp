@@ -1,34 +1,39 @@
 <div class="pictures index">
 	<h2><?php echo __('Pictures'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<tr>
+	
+	
 			
-			<th><?php echo $this->Paginator->sort('name'); ?></th>
-			<th><?php echo $this->Paginator->sort('Image'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
+<ul class="thumbnails">		
+	
 	<?php foreach ($pictures as $picture): ?>
 	<?php if($me['id']==$picture['Picture']['user_id']){
 	?>
 
-	<tr>
+	
 		
-		<td><?php echo h($picture['Picture']['name']); ?>&nbsp;</td>
-		<td>
-			<img src="/cakeville/files/<?php echo $picture['Picture']['url']; ?>" width="50px" height="50px"></div>
-		</td>
-		<td class="actions">
+		
+
+	<li class="span4">
+		<div class="thumbnail">
+			<img src="/cakeville/files/<?php echo $picture['Picture']['url']; ?>" width="150px" height="150px">
+		</div>
+		<div class="caption">
+			<h3><?php echo h($picture['Picture']['name']); ?></h3>
+			<p>
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $picture['Picture']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $picture['Picture']['id'])); ?>
+			
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $picture['Picture']['id']), null, __('Are you sure you want to delete # %s?', $picture['Picture']['id'])); ?>
-		</td>
+			</p>
+		</div>
+	</li>
+	
 <?php
 };
 ?>
-	</tr>
+	
 	
 <?php endforeach; ?>
-	</table>
+</ul>	
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
