@@ -1,12 +1,13 @@
-
-
 <div class="users view">
+<?php if($me['id']==$user['User']['id']){ ?>
+
+  
 <h2><?php echo h($user['User']['username']); ?></h2>
 	
-		
-		
 <img src="<?php echo $this->webroot; ?>files/<?php echo $user['Pic']['url']; ?>" width="250px" height="250px"> 
-			
+
+
+	
 <div class="infos">		
 	<p>
 		<?php echo __('Age:'); ?>
@@ -31,6 +32,7 @@
 </div>		
 	
 </div>
+
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
@@ -208,4 +210,16 @@
 			<li><?php echo $this->Html->link(__('New Picture'), array('controller' => 'pictures', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
+
+<?php
+}
+else{
+?>
+	<h2><?php echo h($user['User']['username']); ?></h2>
+	<img src="<?php echo $this->webroot; ?>files/<?php echo $user['Pic']['url']; ?>" width="250px" height="250px">
+<?php
+};
+?>
+
+
 </div>
