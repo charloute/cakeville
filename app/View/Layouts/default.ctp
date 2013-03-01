@@ -61,7 +61,15 @@
 							
 								<div class="nav-collapse collapse">	
 									<ul class="nav">
-								<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users','action' => 'add')); ?></li>
+					
+								
+									<li class="dropdown"> 
+										<a class="dropdown-toggle" data-toggle="dropdown">Users<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+								<li><?php echo $this->Html->link(__('List users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
+					<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users','action' => 'add')); ?></li>
+									</ul>
+									</li>
 									<li class="dropdown"> 
 										<a class="dropdown-toggle" data-toggle="dropdown">Groups<b class="caret"></b></a>
 									<ul class="dropdown-menu">
