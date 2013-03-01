@@ -16,30 +16,30 @@
 
 	<h2><?php  echo __('User'); ?></h2>
 
-		<dl>
-			<dt><?php echo __('Id'); ?></dt>
-			<dd>
+	
+			<p><?php echo __('Id'); ?></p>
+			<p>
 				<?php echo h($user['User']['id']); ?>
 				&nbsp;
-			</dd>
-			<dt><?php echo __('Name'); ?></dt>
-			<dd>
+			</p>
+			<p><?php echo __('Name'); ?></p>
+			<p>
 				<?php echo h($user['User']['username']); ?>
 				&nbsp;
-			</dd>
-			<dt><?php echo __('Age'); ?></dt>
-			<dd>
+			</p>
+			<p><?php echo __('Age'); ?></p>
+			<p>
 				<?php echo h($user['User']['age']); ?>
 
 				&nbsp;
-			</dd>
-			<dt><?php echo __('Sexe'); ?></dt>
-			<dd>
+			</p>
+			<p><?php echo __('Sexe'); ?></p>
+			<p>
 				<?php echo h($user['Gender']['name']); ?>
 				&nbsp;
-			</dd>
-			<dt><?php echo __('Group'); ?></dt>
-			<dd>
+			</p>
+			<p><?php echo __('Group'); ?></p>
+			<p>
 				<?php echo $this->Html->link($user['Group']['name'], array('controller' => 'groups', 'action' => 'view', $user['Group']['id'])); ?>
 		</p>
 	
