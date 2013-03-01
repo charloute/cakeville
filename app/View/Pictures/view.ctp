@@ -4,26 +4,26 @@
 <div><img src="/cakeville/files/<?php echo $picture['Picture']['url']; ?>" width="250px" height="250px"></div>
 
 
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
+
+		<p><?php echo __('Id'); ?></p>
+		<p>
 		
 				
 
 			<?php echo h($picture['Picture']['id']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Url'); ?></dt>
-		<dd>
+		</p>
+		<p><?php echo __('Url'); ?></p>
+		<p>
 			<?php echo h($picture['Picture']['url']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('User'); ?></dt>
-		<dd>
+		</p>
+		<p><?php echo __('User'); ?></p>
+		<p>
 			<?php echo $this->Html->link($picture['User']['username'], array('controller' => 'users', 'action' => 'view', $picture['User']['id'])); ?>
 			&nbsp;
-		</dd>
-	</dl>
+		</p>
+
 </div>
 
 <div class="actions">
