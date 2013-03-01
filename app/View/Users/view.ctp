@@ -244,6 +244,7 @@
 	<h2><?php echo h($user['User']['username']); ?></h2>
 	<img src="<?php echo $this->webroot; ?>files/<?php echo $user['Pic']['url']; ?>" width="250px" height="250px">
 	<div><?php echo $this->Html->link(__('POKE'), array('controller' => 'pokes', 'action' => 'pokesmb')); ?> </div>
+	<?php echo $this->Html->link(__('New Message'), array('controller' => 'messages', 'action' => 'add', $user['User']['id'])); ?>
 <?php endif; ?>
 
 
