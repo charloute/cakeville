@@ -40,6 +40,29 @@ class MessagesController extends AppController {
 
 	//debug($orcondition);
 	//$this->render("index");
+	
+	
+	
+	
+			if ($this->request->is('post')) {
+				$this->Message->create();
+
+				$this->request->data['Message']['user_id'] = $this->Auth->user('id');
+				$this->request->data['Message']['date'] = DboSource::expression('NOW()');
+				$this->request->data['Message']['statut'] = 'unread';
+				$this->request->data['Message']['dest_id'] = $id;
+				
+				if ($this->Message->save($this->request->data)) {
+					$this->Session->setFlash(__('Message envoyé !'));
+					$this->redirect(array('action' => 'usermessages/'.$id));
+				} else {
+					$this->Session->setFlash(__('Une erreur s\'est produite, veuillez ré-essayer.'));
+				}
+			}
+
+			$users = $this->Message->User->find('list');
+			$dests = $this->Message->Dest->find('list');
+			$this->set(compact('users', 'dests'));
 	}
 
 
@@ -61,14 +84,19 @@ class MessagesController extends AppController {
 
 		$this->Message->recursive = 0;
 		
+		
+		
 
 		$data = $this->Message->find('all',array(
-		'conditions' => array('OR' => array(
-			array('Message.dest_id'=> $connectedid),
-			)),
-			'group' => array('Message.user_id','Message.dest_id'),
-			'order' => array('Message.date DESC')
+			'conditions' =>	array('OR' => array(
+								array('Message.dest_id'=> $connectedid)
+							)),
+			'order' => array('Message.date DESC'),
+			'group' => array('Message.user_id','Message.dest_id')
 		));
+		debug($data);
+		
+		
 
 		$this->set('messages', $data);
 	}
@@ -112,6 +140,7 @@ class MessagesController extends AppController {
 			
 			$this->request->data['Message']['user_id'] = $this->Auth->user('id');
 			$this->request->data['Message']['date'] = DboSource::expression('NOW()');
+			$this->request->data['Message']['statut'] = 'unread';
 			
 			
 			

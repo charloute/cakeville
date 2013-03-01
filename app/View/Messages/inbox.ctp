@@ -12,18 +12,28 @@ foreach($messages as $message){
 
 		echo '----- ';
 
-		echo ' '.$this->Html->link($message['Message']['content'] ,array('controller'=>'messages', 'action'=>'usermessages',$message['Dest']['id']));
+		
+		if($message['Message']['statut'] == 'unread'){
+			echo ' '.$this->Html->link($message['Message']['content'] ,array('controller'=>'messages', 'action'=>'usermessages',$message['Dest']['id']));
+		}
+			
+			
+			
 		echo ' <i>'.$message['Message']['date'].'</i>';
 		echo "</li>";
 	}
 	elseif($message['Dest']['id'] == $me['id']){
 		echo "<li>";
 
+		
 		echo $this->Html->link($message['User']['username'] ,array('controller'=>'messages', 'action'=>'usermessages',$message['User']['id']));
 
 		echo '----- ';
-
+		debug($message['Message']['statut']);
+		if($message['Message']['statut'] == 'unread'){
 		echo ' '.$this->Html->link($message['Message']['content'] ,array('controller'=>'messages', 'action'=>'usermessages',$message['User']['id']));
+		}
+		
 		echo ' <i>'.$message['Message']['date'].'</i>';
 		echo "</li>";
 	}
