@@ -1,4 +1,5 @@
 <div class="users view">
+
 <?php if($me['id']==$user['User']['id']){ ?>
 
   
@@ -12,6 +13,23 @@
 	<p>
 		<?php echo __('Age:'); ?>
 		
+
+<h2><?php  echo __('User'); ?></h2>
+
+		<li><?php echo $this->Html->link(__('POKE'), array('controller' => 'pokes', 'action' => 'pokesmb')); ?> </li>
+	<dl>
+		<dt><?php echo __('Id'); ?></dt>
+		<dd>
+			<?php echo h($user['User']['id']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Name'); ?></dt>
+		<dd>
+			<?php echo h($user['User']['username']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Age'); ?></dt>
+		<dd>
 			<?php echo h($user['User']['age']); ?>
 
 			&nbsp;

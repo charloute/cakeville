@@ -9,24 +9,34 @@
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($pokes as $poke): ?>
+		<?php if($me['id']==$poke['Poke']['dest_id']){?>
 	<tr>
 		<td><?php echo h($poke['Poke']['id']); ?>&nbsp;</td>
 		<td>
-		
 			<?php echo $this->Html->link($poke['User']['username'], array('controller' => 'users', 'action' => 'view', $poke['User']['id'])); ?>
-	
 		</td>
-		<td><?php echo h($poke['Poke']['dest_id']); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($poke['Dest']['username'], array('controller' => 'dests', 'action' => 'view', $poke['Dest']['id'])); ?>
+		</td>
+		
 		<td><?php echo h($poke['Poke']['created']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $poke['Poke']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $poke['Poke']['id'])); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $poke['Poke']['id']), null, __('Are you sure you want to delete # %s?', $poke['Poke']['id'])); ?>
 		</td>
+		<?php };
+		?>
+	
 	</tr>
 <?php endforeach; ?>
 	</table>
-
+	<p>
+	<?php
+	echo $this->Paginator->counter(array(
+	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+	));
+	?>	</p>
 	<div class="paging">
 	<?php
 		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
@@ -34,4 +44,12 @@
 		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
+</div>
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+		<li><?php echo $this->Html->link(__('New Poke'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
+	</ul>
 </div>

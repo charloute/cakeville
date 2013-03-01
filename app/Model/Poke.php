@@ -22,6 +22,14 @@ class Poke extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+		'Dest'=>array(
+			'className'=>'User',
+			'foreignKey'=>'dest_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
+
 	);
 }
