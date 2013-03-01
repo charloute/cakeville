@@ -47,6 +47,7 @@ class UsersController extends AppController {
 		if ($this->request->is('post')) {
         	if ($this->Auth->login()) {
             	$this->redirect($this->Auth->redirect());
+				
             } else {
             	$this->Session->setFlash(__('Invalid password, try again !'));
             }
@@ -83,6 +84,10 @@ class UsersController extends AppController {
 		}
 		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
 		$this->set('user', $this->User->find('first', $options));
+		
+		
+		
+
 	}
 
 /**

@@ -10,7 +10,7 @@ class MessagesController extends AppController {
 
 
 	public function usermessages($id) {
-			$connectedid = $this->Auth->user('id');
+		$connectedid = $this->Auth->user('id');
 
 		$this->Message->recursive = 0;
 		//$this->set('messages', $this->paginate(array('Message.user_id'=>$id,array(
@@ -36,33 +36,35 @@ class MessagesController extends AppController {
 		) );
 
 		$this->set('messages', $orcondition);
+		
+		//transform 'unread' messages in 'read'
+		/*$this->Message->updateAll(
+		    array('Message.statut' => "'unread'")
+		);*/
+	
+	
+		//send message
+		if ($this->request->is('post')) {
+			$this->Message->create();
 
-
-	//debug($orcondition);
-	//$this->render("index");
-	
-	
-	
-	
-			if ($this->request->is('post')) {
-				$this->Message->create();
-
-				$this->request->data['Message']['user_id'] = $this->Auth->user('id');
-				$this->request->data['Message']['date'] = DboSource::expression('NOW()');
-				$this->request->data['Message']['statut'] = 'unread';
-				$this->request->data['Message']['dest_id'] = $id;
-				
-				if ($this->Message->save($this->request->data)) {
-					$this->Session->setFlash(__('Message envoyé !'));
-					$this->redirect(array('action' => 'usermessages/'.$id));
-				} else {
-					$this->Session->setFlash(__('Une erreur s\'est produite, veuillez ré-essayer.'));
-				}
+			$this->request->data['Message']['user_id'] = $this->Auth->user('id');
+			$this->request->data['Message']['date'] = DboSource::expression('NOW()');
+			$this->request->data['Message']['statut'] = 'unread';
+			$this->request->data['Message']['dest_id'] = $id;
+			
+			if ($this->Message->save($this->request->data)) {
+				$this->Session->setFlash(__('Message envoyé !'));
+				$this->redirect(array('action' => 'usermessages/'.$id));
+			} else {
+				$this->Session->setFlash(__('Une erreur s\'est produite, veuillez ré-essayer.'));
 			}
+		}
 
-			$users = $this->Message->User->find('list');
-			$dests = $this->Message->Dest->find('list');
-			$this->set(compact('users', 'dests'));
+		$users = $this->Message->User->find('list');
+		$dests = $this->Message->Dest->find('list');
+		$this->set(compact('users', 'dests'));
+		
+	
 	}
 
 
@@ -94,7 +96,13 @@ class MessagesController extends AppController {
 			'order' => array('Message.date DESC'),
 			'group' => array('Message.user_id','Message.dest_id')
 		));
+		
 		debug($data);
+		
+		/*$total = $this->Message->find('count', array(
+		        'conditions' => array('Message.statut' => 'unread')
+		    ));
+		debug($total);*/
 		
 		
 
@@ -133,7 +141,9 @@ class MessagesController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function add($id) {
+		
+		
 		
 		if ($this->request->is('post')) {
 			$this->Message->create();
@@ -141,6 +151,7 @@ class MessagesController extends AppController {
 			$this->request->data['Message']['user_id'] = $this->Auth->user('id');
 			$this->request->data['Message']['date'] = DboSource::expression('NOW()');
 			$this->request->data['Message']['statut'] = 'unread';
+			$this->request->data['Message']['dest_id'] = $id;
 			
 			
 			
@@ -149,12 +160,14 @@ class MessagesController extends AppController {
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('Une erreur s\'est produite, veuillez ré-essayer.'));
+			
 			}
 		}
 		
 		$users = $this->Message->User->find('list');
 		$dests = $this->Message->Dest->find('list');
 		$this->set(compact('users', 'dests'));
+		debug($id);
 	}
 
 /**

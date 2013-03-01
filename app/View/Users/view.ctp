@@ -78,12 +78,13 @@
 <?php endif; ?>
 
 
+
 	
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Message'), array('controller' => 'messages', 'action' => 'add')); ?> </li>
-			<li><?php echo $this->Html->link(__('Messages'), array('controller' => 'messages', 'action' => 'index')); ?> </li>
+			<li><?php echo $this->Html->link(__('New Message'), array('controller' => 'messages', 'action' => 'add', $user['User']['id'])); ?> </li>
+			<li><?php echo $this->Html->link(__('Messages'), array('controller' => 'messages', 'action' => 'inbox')); ?> </li>
 		</ul>
 	</div>
 </div>

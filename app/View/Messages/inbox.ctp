@@ -5,6 +5,10 @@
 <ul>
 <?php
 foreach($messages as $message){
+	
+	
+	
+	
 	if($message['User']['id'] == $me['id']){
 		echo "<li>";
 
@@ -29,7 +33,9 @@ foreach($messages as $message){
 		echo $this->Html->link($message['User']['username'] ,array('controller'=>'messages', 'action'=>'usermessages',$message['User']['id']));
 
 		echo '----- ';
-		debug($message['Message']['statut']);
+		
+		
+		
 		if($message['Message']['statut'] == 'unread'){
 		echo ' '.$this->Html->link($message['Message']['content'] ,array('controller'=>'messages', 'action'=>'usermessages',$message['User']['id']));
 		}

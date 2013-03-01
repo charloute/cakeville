@@ -1,13 +1,18 @@
 <div class="messages view">
-<h2><?php echo __('Messages'); ?></h2>
+<!--<h2><?php echo __('Conversation avec '.$messages[0]['Dest']['username']); ?></h2>-->
+
+
 <?php foreach($messages as $message){ ?>
+	
+	
 <?php if($me['id'] == $message['User']['id']) {
 	echo '<h4>MOI</h4>';
 }else{ ?>
 	
 <h4><?php echo $this->Html->link($message['User']['username'], array('controller' => 'users', 'action' => 'view', $message['User']['id'])); }?>
-	<?php echo h($message['Message']['date']); ?>
+	
 </h4>
+<?php echo h($message['Message']['date']); ?>
 <dl>
 <dt><?php echo h($message['Message']['content']); ?>
 &nbsp;</dt>

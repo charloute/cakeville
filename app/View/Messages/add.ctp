@@ -7,7 +7,6 @@
 		<legend><?php echo __('Add Message'); ?></legend>
 	<?php
 		
-		echo $this->Form->input('dest_id');
 		echo $this->Form->input('content');
 	?>
 	</fieldset>
