@@ -1,7 +1,7 @@
 <div class="users view">
 <h2><?php  echo __('User'); ?></h2>
 
-		
+		<li><?php echo $this->Html->link(__('POKE'), array('controller' => 'pokes', 'action' => 'pokesmb')); ?> </li>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
