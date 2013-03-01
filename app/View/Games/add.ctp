@@ -1,7 +1,7 @@
 <div class="games form">
 <?php echo $this->Form->create('Game'); ?>
 	<fieldset>
-		<legend><?php echo __('Admin Add Game'); ?></legend>
+		<legend><?php echo __('Add Game'); ?></legend>
 	<?php
 		echo $this->Form->input('name');
 		echo $this->Form->input('User');

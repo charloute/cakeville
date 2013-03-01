@@ -1,7 +1,7 @@
 <div class="movies form">
 <?php echo $this->Form->create('Movie'); ?>
 	<fieldset>
-		<legend><?php echo __('Admin Edit Movie'); ?></legend>
+		<legend><?php echo __('Edit Movie'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('name');
