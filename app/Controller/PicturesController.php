@@ -38,14 +38,44 @@ class PicturesController extends AppController {
  * @return void
  */
 	public function add() {
-		if ($this->request->is('post')) {
+		if($this->request->is('post')) {
+			$data = $this->request->data['Picture'];
+			$alea = substr(uniqid(), -3,3);
+			
+			/* wtf ?
+			if(isset($data['url'])){
+				$this->redirect(array('action' => 'show', '?class=&alt=&src='.urlencode($data['url'])));
+			}
+			*/
+			$dir = WWW_ROOT.DS.'files'.DS.date('Y');
+			
+			if(!file_exists($dir)){
+				mkdir($dir,0777);
+			}
+			
+			$f = explode('.',$data['file']['name']);
+			$ext = end($f);
+			
+			$filename= Inflector::slug(implode('.',array_slice($f,0,-1)),'-');
+			
+			//sauvegarde bdd
+			// je specifie l'url
+			$this->request->data['Picture']['url'] = date('Y').'/'.$filename.$alea.'.'.$ext;
+			// vire les donnees sur le file
+			unset($this->request->data['Picture']['file']);
+			// c'est a MOI
+			$this->request->data['Picture']['user_id'] = $this->Auth->user('id');
+			
 			$this->Picture->create();
-			if ($this->Picture->save($this->request->data)) {
-				$this->Session->setFlash(__('The picture has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
+			$success = $this->Picture->save($this->request->data);
+			if($success){
+				move_uploaded_file($data['file']['tmp_name'], $dir.DS.$filename.$alea.'.'.$ext);
+				$this->Session->setFlash(__('The picture has been saved.'));
+			}
+			else{
 				$this->Session->setFlash(__('The picture could not be saved. Please, try again.'));
 			}
+				
 		}
 		$users = $this->Picture->User->find('list');
 		$this->set(compact('users'));

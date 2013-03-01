@@ -1,19 +1,19 @@
 <div class="users view">
-<h2><?php  echo __('User'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Name'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['username']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Age'); ?></dt>
-		<dd>
+<?php if($me['id']==$user['User']['id']){ ?>
+
+  
+<h2><?php echo h($user['User']['username']); ?></h2>
+	
+<img src="<?php echo $this->webroot; ?>files/<?php echo $user['Pic']['url']; ?>" width="250px" height="250px"> 
+
+
+	
+<div class="infos">		
+	<p>
+		<?php echo __('Age:'); ?>
+		
 			<?php echo h($user['User']['age']); ?>
+
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Sexe'); ?></dt>
@@ -24,9 +24,34 @@
 		<dt><?php echo __('Group'); ?></dt>
 		<dd>
 			<?php echo $this->Html->link($user['Group']['name'], array('controller' => 'groups', 'action' => 'view', $user['Group']['id'])); ?>
-			&nbsp;
-		</dd>
-	</dl>
+	</p>
+	
+	<p>
+	<?php echo $this->Html->link(__('Voir mes photos'), array('controller' => 'pictures', 'action' => 'index')); ?> 
+	</p>
+			
+</div>		
+	
+</div>
+
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+		<li><?php echo $this->Html->link(__('Edit User'), array('action' => 'edit', $user['User']['id'])); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Delete User'), array('action' => 'delete', $user['User']['id']), null, __('Are you sure you want to delete # %s?', $user['User']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Groups'), array('controller' => 'groups', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Group'), array('controller' => 'groups', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Messages'), array('controller' => 'messages', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Message'), array('controller' => 'messages', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Movies'), array('controller' => 'movies', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Movie'), array('controller' => 'movies', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Games'), array('controller' => 'games', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Game'), array('controller' => 'games', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Hobbies'), array('controller' => 'hobbies', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Hobby'), array('controller' => 'hobbies', 'action' => 'add')); ?> </li>
+	</ul>
 </div>
 
 <div class="related">
@@ -188,4 +213,22 @@
 	</table>
 <?php endif; ?>
 
-	
+
+	<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('New Picture'), array('controller' => 'pictures', 'action' => 'add')); ?> </li>
+		</ul>
+	</div>
+
+<?php
+}
+else{
+?>
+	<h2><?php echo h($user['User']['username']); ?></h2>
+	<img src="<?php echo $this->webroot; ?>files/<?php echo $user['Pic']['url']; ?>" width="250px" height="250px">
+<?php
+};
+?>
+
+
+</div>

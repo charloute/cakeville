@@ -1,27 +1,40 @@
 <div class="pictures index">
 	<h2><?php echo __('Pictures'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('url'); ?></th>
-			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
+	
+	
+			
+<ul class="thumbnails">		
+	
 	<?php foreach ($pictures as $picture): ?>
-	<tr>
-		<td><?php echo h($picture['Picture']['id']); ?>&nbsp;</td>
-		<td><?php echo h($picture['Picture']['url']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($picture['User']['username'], array('controller' => 'users', 'action' => 'view', $picture['User']['id'])); ?>
-		</td>
-		<td class="actions">
+	<?php if($me['id']==$picture['Picture']['user_id']){
+	?>
+
+	
+		
+		
+
+	<li class="span4">
+		<div class="thumbnail">
+			<img src="/cakeville/files/<?php echo $picture['Picture']['url']; ?>" width="150px" height="150px">
+		</div>
+		<div class="caption">
+			<h3><?php echo h($picture['Picture']['name']); ?></h3>
+			<p>
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $picture['Picture']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $picture['Picture']['id'])); ?>
+			
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $picture['Picture']['id']), null, __('Are you sure you want to delete # %s?', $picture['Picture']['id'])); ?>
-		</td>
-	</tr>
+			</p>
+		</div>
+	</li>
+	
+<?php
+};
+?>
+	
+	
 <?php endforeach; ?>
-	</table>
+
+</ul>	
 
 	<div class="paging">
 	<?php
@@ -32,3 +45,11 @@
 	</div>
 </div>
 
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+		<li><?php echo $this->Html->link(__('New Picture'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
+	</ul>
+</div>

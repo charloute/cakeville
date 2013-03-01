@@ -41,7 +41,15 @@ class User extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+		'Pic' => array(
+			'className' => 'Picture',
+			'foreignKey' => 'picture_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
+		
 	);
 
 /**
