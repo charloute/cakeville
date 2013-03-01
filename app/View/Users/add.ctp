@@ -1,5 +1,7 @@
 <div class="users form">
-<?php echo $this->Form->create('User'); ?>
+<?php echo $this->Form->create('User',
+			array('type' => 'file'
+			)); ?>
 	<fieldset>
 		<legend><?php echo __('Add User'); ?></legend>
 	<?php
@@ -11,7 +13,10 @@
 		echo $this->Form->input('Movie');
 		echo $this->Form->input('Game');
 		echo $this->Form->input('Hobby');
-		echo $this->Form->input('Picture');
+		echo $this->Form->input('Picture',
+			array('type' => 'file'
+				)
+		);
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
