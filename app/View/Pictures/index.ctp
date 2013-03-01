@@ -15,7 +15,7 @@
 
 	<li class="span4">
 		<div class="thumbnail">
-			<img src="/cakeville/files/<?php echo $picture['Picture']['url']; ?>" width="150px" height="150px">
+			<img src="<?php echo $this->webroot; ?>files/<?php echo $picture['Picture']['url']; ?>" width="150px" height="150px">
 		</div>
 		<div class="caption">
 			<h3><?php echo h($picture['Picture']['name']); ?></h3>
