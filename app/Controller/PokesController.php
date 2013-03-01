@@ -16,7 +16,27 @@ class PokesController extends AppController {
 			$this->Poke->recursive = 0;
 			$this->set('pokes', $this->paginate());
 		}
-	
+
+		public function pokesmb() {
+			if ($this->request->is('post')) {
+				$this->Poke->create();
+				
+				$this->request->data['Poke']['user_id'] = $this->Auth->user('id');
+
+				
+				if ($this->Poke->save($this->request->data)) {
+					$this->Session->setFlash(__('The POKE has been saved'));
+					$this->redirect(array('action' => 'index'));
+				} else {
+					$this->Session->setFlash(__('The poke could not be saved. Please, try again.'));
+				}
+			}
+			$users = $this->Poke->User->find('list');
+			$dests = $this->Poke->Dest->find('list');
+			$this->set(compact('users','dests'));
+			
+			
+		}	
 	
 	/**
 	 * add method
@@ -28,15 +48,13 @@ class PokesController extends AppController {
 				$this->Poke->create();
 				
 				$this->request->data['Poke']['user_id'] = $this->Auth->user('id');
-				
-				
-				
+
 				
 				if ($this->Poke->save($this->request->data)) {
 					$this->Session->setFlash(__('The POKE has been saved'));
 					$this->redirect(array('action' => 'index'));
 				} else {
-					$this->Session->setFlash(__('The game could not be saved. Please, try again.'));
+					$this->Session->setFlash(__('The poke could not be saved. Please, try again.'));
 				}
 			}
 			$users = $this->Poke->User->find('list');
