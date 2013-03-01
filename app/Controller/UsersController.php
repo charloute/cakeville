@@ -100,12 +100,13 @@ class UsersController extends AppController {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
 		}
+		$genders = $this->User->Gender->find('list');
 		$groups = $this->User->Group->find('list');
 		$movies = $this->User->Movie->find('list');
 		$games = $this->User->Game->find('list');
 		$hobbies = $this->User->Hobby->find('list');
 		
-		$this->set(compact('groups', 'movies', 'games', 'hobbies'));
+		$this->set(compact('groups', 'movies', 'games', 'hobbies', 'genders'));
 	}
 
 /**

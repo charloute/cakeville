@@ -25,7 +25,7 @@ class Gender extends AppModel {
 	public $hasMany = array(
 		'User' => array(
 			'className' => 'User',
-			'foreignKey' => 'sexe_id',
+			'foreignKey' => 'gender_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',

@@ -6,7 +6,11 @@
 		echo $this->Form->input('id');
 		echo $this->Form->input('username');
 		echo $this->Form->input('age');
-		echo $this->Form->input('sexe');
+			echo $this->Form->input('Gender',
+				array(
+					'multiple'=>'checkbox'
+				)
+			);
 		echo $this->Form->input('group_id');
 		echo $this->Form->input('Movie');
 		echo $this->Form->input('Game');
