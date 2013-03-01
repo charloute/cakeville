@@ -17,25 +17,14 @@
 	?>
 	<?php
 		echo $this->Form->input('group_id');
-	 	echo $this->Form->input('Movie',
-			array(
-				'multiple'=>'checkbox'
-			)
-		); 
+	 	echo $this->Form->input('Movie');
+		
 	?>
 	<?php 
-		echo $this->Form->input('Game',
-			array(
-				'multiple'=>'checkbox'
-			)
-		); 
+		echo $this->Form->input('Game'); 
 	?>
 	<?php 
-		echo $this->Form->input('Hobby',
-			array(
-				'multiple'=>'checkbox'
-			)
-		); 
+		echo $this->Form->input('Hobby'); 
 	?>
 	</fieldset>
 	<?php 
