@@ -8,6 +8,8 @@ class DATABASE_CONFIG {
 		'login' => 'cakephp',
 		'password' => 'cakephp',
 		'database' => 'cakeville',
-		'encoding' => 'utf8'
+		'prefix' => '',
+		'encoding' => 'utf8',
 	);
+
 }

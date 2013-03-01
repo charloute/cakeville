@@ -1,7 +1,5 @@
 <div class="messages view">
 
-
-
 <h2><?php  echo __('Message'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>

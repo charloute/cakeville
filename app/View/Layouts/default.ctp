@@ -26,9 +26,19 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<?php echo $cakeDescription ?>:
 		<?php echo $title_for_layout; ?>
 	</title>
+
 	<link rel="stylesheet" href="<?php echo $this->Html->url('/css/bootstrap.css');?>">
 	    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	    <script src="<?php echo $this->Html->url('/js/bootstrap.js');?>"></script>
+	<?php
+		echo $this->Html->meta('icon');
+
+		echo $this->Html->css('cake.generic');
+
+		echo $this->fetch('meta');
+		echo $this->fetch('css');
+		echo $this->fetch('script');
+	?>
 </head>
 
 <body>
