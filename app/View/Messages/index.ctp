@@ -85,14 +85,14 @@
 	
 	<ul>
 		<?php foreach ($messages as $message): ?>
-			<?php if($me['id'] == $message['User']['id'] || $me['id'] == $message['Dest']['id'] ) {?>
-				<?php if($me['id'] == $message['User']['id']){ ?>
+			<?php if($me['id'] == $message['User']['id'] || $me['id'] == $message['Dest']['id'] ): ?>
+				<?php if($me['id'] == $message['User']['id']): ?>
 					<li><?php echo $this->Html->link($message['Dest']['username'], array('controller' => 'messages', 'action' => 'add', $message['Dest']['id']));?></li>
-				<? } ?>
-				<?php if($me['id'] == $message['Dest']['id']){ ?>
+				<?php endif; ?>
+				<?php if($me['id'] == $message['Dest']['id']): ?>
 					<li><?php echo $this->Html->link($message['User']['username'], array('controller' => 'messages', 'action' => 'add', $message['User']['id']));?></li>
-				<? } ?>
-			<?php } ?>
+				<?php endif; ?>
+			<?php endif; ?>
 		<?php endforeach; ?>
 	</ul>
 		
