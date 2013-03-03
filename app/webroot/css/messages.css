@@ -1,14 +1,25 @@
-.messages						{float:right;width:76%;padding:10px 2%;}
+.messages						{padding:10px 2%;margin:0;
+  background: url(../img/background-msg.png) no-repeat center fixed; 
+  -webkit-background-size: cover; /* pour Chrome et Safari */
+  -moz-background-size: cover; /* pour Firefox */
+  -o-background-size: cover; /* pour Opera */
+  background-size: cover; /* version standardisée */;}
+.messages .mcontent				{background:rgba(0, 0 , 0, 0.5); width:1000px;margin:auto;}
+.messages h2					{background:#EFEFEF; text-align:center;padding:30px;font-family: 'Patrick Hand SC', cursive;font-weight:normal;font-size:28pt;}
+.messages ul					{list-style-type:none;margin-top:100px;}
+.messages li a					{background:#CFF7F9; color:#844812;padding:40px;display:block;font-family: 'Patrick Hand SC', cursive;font-weight:normal; font-size:28pt;}
+.messages li a:hover			{background:#844812; color:#CFF7F9;}
+.messages li					{width:100%;margin-bottom:10px;text-align:center;}
 .messages .left					{float:left;}
 .messages .right				{float:right;}
-.messages .conv					{width:60%;}
+.messages a						{font-weight:normal;text-align:center;}
 .messages .conv .coord img		{padding:15px; height:100px;}
 .messages .conv .mycoord img	{padding:15px; height:100px;}
 .messages .coord				{background:#EFEFEF; width:60%; border-radius:8px 8px 25px 0;}
 .messages .mycoord				{background:#EFEFEF; width:60%;margin-left:40%; border-radius:8px 8px 0 25px;}
 .messages .coord p, 
 .messages .mycoord p			{text-align:center;padding-top:50px;}
-.messages .blocr				{background:white;text-align:right; margin-bottom:20px;}
+.messages .blocr				{text-align:right; margin-bottom:20px;}
 .messages .blocr .mcont			
 {/* Anciens navigateurs */
 	background: limegreen url("gradient-bg.png") repeat-x top;
@@ -43,8 +54,8 @@
 		palegreen,
 		limegreen
 	);
-	color:#0B5B0B; clear:right;text-align:right;padding:20px;border-radius:25px 25px 0 25px;}
-.messages .blocl				{background:white; margin-bottom:20px; }
+	color:#0B5B0B; clear:right;text-align:right;padding:20px;border-radius:25px 25px 0 25px;font-weight:bold;}
+.messages .blocl				{margin-bottom:20px; }
 .messages .blocl .mcont			
 {/* Anciens navigateurs */
 	background: darkturquoise url("gradient-bg.png") repeat-x top;
@@ -79,10 +90,11 @@
 		#B5FCFC,
 		darkturquoise
 	);
-	color:#095959;padding:20px;text-align:left;clear:left;border-radius:25px 25px 25px 0;}
-#MessageUsermessagesForm		{width:60%;}
-#MessageContent					{width:100%;}
-.submit							{float:right;}
+	color:#095959;padding:20px;text-align:left;clear:left;border-radius:25px 25px 25px 0;font-weight:bold;}
+.messages #MessageUsermessagesForm			{width:80%; margin:auto;}
+.messages label								{display:none;}
+.messages #MessageContent					{width:100%;margin-top:20px;}
+.messages .submit							{float:right; margin-bottom:50px;}
 
 
 /* CLEARS */

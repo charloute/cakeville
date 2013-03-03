@@ -51,7 +51,6 @@ h1 {
 	font-size: 100%;
 }
 h2 {
-	background:#fff;
 	color: #e32;
 	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;
 	font-size: 190%;
@@ -77,9 +76,7 @@ p {
 	text-align: left;
 }
 
-#header{
-	padding: 10px 20px;
-}
+
 #header h1 {
 	line-height:20px;
 	background: #003d4c url('../img/cake.icon.png') no-repeat left;
@@ -101,7 +98,6 @@ p {
 	background: #fff;
 	clear: both;
 	color: #333;
-	padding: 10px 20px 40px 20px;
 	overflow: auto;
 }
 #footer {

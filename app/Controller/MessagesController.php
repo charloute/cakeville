@@ -112,9 +112,8 @@ class MessagesController extends AppController {
 		    ));
 		debug($total);*/
 		
-		$pictures = $this->Message->User->Pic->find('list');
 		$users = $this->Message->User->findAllById($connectedid);
-		$this->set(compact('users', 'pictures'));
+		$this->set(compact('users'));
 
 		$this->set('messages', $data);
 	}

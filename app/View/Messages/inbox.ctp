@@ -1,7 +1,7 @@
 <?php // debug($messages); ?>
 
 <div class="messages inbox">
-<h1>Inbox</h1>
+
 <ul>
 <?php
 foreach($messages as $message){
@@ -12,16 +12,8 @@ foreach($messages as $message){
 	if($message['User']['id'] == $me['id']){
 		echo "<li>";
 
-		echo '<h2>'.$this->Html->link($message['Dest']['username'] ,array('controller'=>'messages', 'action'=>'usermessages',$message['User']['id'])).'</h2>';
+		echo '<p>'.$this->Html->link($message['Dest']['username'] ,array('controller'=>'messages', 'action'=>'usermessages',$message['User']['id'])).'</p>';
 
-		
-		if($message['Message']['statut'] == 'unread'){
-			echo ' '.$this->Html->link($message['Message']['content'] ,array('controller'=>'messages', 'action'=>'usermessages',$message['Dest']['id']));
-		}
-			
-			
-			
-		echo ' <i>'.$message['Message']['date'].'</i>';
 		
 		echo "</li>";
 	}
@@ -29,15 +21,9 @@ foreach($messages as $message){
 		echo "<li>";
 
 		
-		echo '<h2>'.$this->Html->link($message['User']['username'] ,array('controller'=>'messages', 'action'=>'usermessages',$message['User']['id'])).'</h2>';
+		echo '<p>'.$this->Html->link($message['User']['username'] ,array('controller'=>'messages', 'action'=>'usermessages',$message['User']['id'])).'</p>';
 		
 		
-		
-		if($message['Message']['statut'] == 'unread'){
-		echo $this->Html->link($message['Message']['content'] ,array('controller'=>'messages', 'action'=>'usermessages',$message['User']['id']));
-		}
-		
-		echo ' <i>'.$message['Message']['date'].'</i>';
 		
 		echo "</li>";
 	}

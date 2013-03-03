@@ -37,7 +37,7 @@
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
-	
+	<link href='http://fonts.googleapis.com/css?family=Patrick+Hand+SC' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="<?php echo $this->Html->url('/css/bootstrap.css');?>">
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="<?php echo $this->Html->url('/js/bootstrap.js');?>"></script>
@@ -136,18 +136,18 @@
 					</div>
 				</div>
 		</div><!-- /.header -->
-			<div id="container">
-		<div id="content">
 			
-
+		<div id="content">
+			<div id="container">
 			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $this->fetch('content'); ?>
+			</div>
 		</div>
 		<div id="footer">
 			
+		
 		</div>
-	</div>
 	
 	<?php echo $this->element('sql_dump'); ?>
 </body>
