@@ -1,15 +1,90 @@
+.messages						{float:right;width:76%;padding:10px 2%;}
 .messages .left					{float:left;}
 .messages .right				{float:right;}
-.messages .conv					{width:50%;}
-.messages .conv .coord img		{padding:15px;}
+.messages .conv					{width:60%;}
+.messages .conv .coord img		{padding:15px; height:100px;}
 .messages .conv .mycoord img	{padding:15px; height:100px;}
-.messages .coord				{background:#EDEAEA; width:45%; height:130px;border-radius:8px 0 0 0;}
-.messages .mycoord				{background:#EDEAEA; width:45%;margin-left:55%; height:130px; border-radius:0 8px 0 0 ;}
-.messages .blocr				{background:white;text-align:right; margin-bottom:20px;border:solid 2px #D6D4D4; border-radius:10px;}
-.messages .blocr p				{padding:20px;}
-.messages .blocl				{background:white; margin-bottom:20px; border:solid 2px #D6D4D4; border-radius:10px;}
-.messages .blocl p				{padding:20px;}
+.messages .coord				{background:#EFEFEF; width:60%; border-radius:8px 8px 25px 0;}
+.messages .mycoord				{background:#EFEFEF; width:60%;margin-left:40%; border-radius:8px 8px 0 25px;}
+.messages .coord p, 
+.messages .mycoord p			{text-align:center;padding-top:50px;}
+.messages .blocr				{background:white;text-align:right; margin-bottom:20px;}
+.messages .blocr .mcont			
+{/* Anciens navigateurs */
+	background: limegreen url("gradient-bg.png") repeat-x top;
+	-o-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+	/* Navigateurs récents */
+	background: -webkit-gradient(
+		linear,
+		left top, left bottom,
+		from(palegreen),
+		to(limegreen)
+	);
+	background: -webkit-linear-gradient(
+		top,
+		palegreen,
+		limegreen
+	);
+	background: -moz-linear-gradient(
+		top,
+		palegreen,
+		limegreen
+	);
+	background: -o-linear-gradient(
+		top,
+		palegreen,
+		limegreen
+	);
+	background: linear-gradient(
+		top,
+		palegreen,
+		limegreen
+	);
+	color:#0B5B0B; clear:right;text-align:right;padding:20px;border-radius:25px 25px 0 25px;}
+.messages .blocl				{background:white; margin-bottom:20px; }
+.messages .blocl .mcont			
+{/* Anciens navigateurs */
+	background: darkturquoise url("gradient-bg.png") repeat-x top;
+	-o-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+	/* Navigateurs récents */
+	background: -webkit-gradient(
+		linear,
+		left top, left bottom,
+		from(#B5FCFC),
+		to(darkturquoise)
+	);
+	background: -webkit-linear-gradient(
+		top,
+		#B5FCFC,
+		darkturquoise
+	);
+	background: -moz-linear-gradient(
+		top,
+		#B5FCFC,
+		darkturquoise
+	);
+	background: -o-linear-gradient(
+		top,
+		#B5FCFC,
+		darkturquoise
+	);
+	background: linear-gradient(
+		top,
+		#B5FCFC,
+		darkturquoise
+	);
+	color:#095959;padding:20px;text-align:left;clear:left;border-radius:25px 25px 25px 0;}
+#MessageUsermessagesForm		{width:60%;}
+#MessageContent					{width:100%;}
+.submit							{float:right;}
+
 
 /* CLEARS */
 .cleft							{clear:left;}
-.right							{clear:right;}
+.cright							{clear:right;}
