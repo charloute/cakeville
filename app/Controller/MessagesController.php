@@ -97,7 +97,6 @@ class MessagesController extends AppController {
 			'group' => array('Message.user_id','Message.dest_id')
 		));
 		
-		debug($data);
 		
 		/*$total = $this->Message->find('count', array(
 		        'conditions' => array('Message.statut' => 'unread')
@@ -212,10 +211,10 @@ class MessagesController extends AppController {
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Message->delete()) {
 			$this->Session->setFlash(__('Message deleted'));
-			$this->redirect(array('action' => 'index'));
+			$this->redirect(array('action' => 'inbox'));
 		}
 		$this->Session->setFlash(__('Message was not deleted'));
-		$this->redirect(array('action' => 'index'));
+		$this->redirect(array('action' => 'inbox'));
 	}
 
 /**

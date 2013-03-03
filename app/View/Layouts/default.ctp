@@ -80,8 +80,7 @@
 									<li class="dropdown"> 
 										<a class="dropdown-toggle" data-toggle="dropdown">Messages<b class="caret"></b></a>
 									<ul class="dropdown-menu">		
-								<li><?php echo $this->Html->link(__('List Messages'), array('controller' => 'messages', 'action' => 'index')); ?> </li>
-								<li><?php echo $this->Html->link(__('New Message'), array('controller' => 'messages', 'action' => 'add')); ?> </li>
+								<li><?php echo $this->Html->link(__('List Messages'), array('controller' => 'messages', 'action' => 'inbox')); ?> </li>
 									</ul>
 									</li>
 										<li class="dropdown"> 
