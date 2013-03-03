@@ -1,0 +1,15 @@
+.messages .left					{float:left;}
+.messages .right				{float:right;}
+.messages .conv					{width:50%;}
+.messages .conv .coord img		{padding:15px;}
+.messages .conv .mycoord img	{padding:15px; height:100px;}
+.messages .coord				{background:#EDEAEA; width:45%; height:130px;border-radius:8px 0 0 0;}
+.messages .mycoord				{background:#EDEAEA; width:45%;margin-left:55%; height:130px; border-radius:0 8px 0 0 ;}
+.messages .blocr				{background:white;text-align:right; margin-bottom:20px;border:solid 2px #D6D4D4; border-radius:10px;}
+.messages .blocr p				{padding:20px;}
+.messages .blocl				{background:white; margin-bottom:20px; border:solid 2px #D6D4D4; border-radius:10px;}
+.messages .blocl p				{padding:20px;}
+
+/* CLEARS */
+.cleft							{clear:left;}
+.right							{clear:right;}

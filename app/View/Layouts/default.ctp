@@ -31,6 +31,7 @@
 		
 
 		echo $this->Html->css('cake.generic');
+		echo $this->Html->css('messages');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');

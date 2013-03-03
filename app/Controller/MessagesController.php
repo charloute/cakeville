@@ -13,8 +13,6 @@ class MessagesController extends AppController {
 		$connectedid = $this->Auth->user('id');
 
 		$this->Message->recursive = 0;
-		//$this->set('messages', $this->paginate(array('Message.user_id'=>$id,array(
-		//'conditions' => array('Message.user_receiver_id'=> $connectedid)))));
 
 
 
@@ -34,6 +32,18 @@ class MessagesController extends AppController {
 			)),
 			'order' => array('Message.date DESC')
 		) );
+		
+		$usersexp = $this->Message->User->find('all', array(
+			'conditions' => array('OR' => array(
+				array('User.id'=> $connectedid),
+				)
+			)));
+		$usersdest = $this->Message->User->find('all', array(
+			'conditions' => array('OR' => array(
+				array('User.id'=> $id),
+				)
+			)));	
+		$this->set(compact('usersexp', 'usersdest'));
 
 		$this->set('messages', $orcondition);
 		
@@ -87,7 +97,6 @@ class MessagesController extends AppController {
 		$this->Message->recursive = 0;
 		
 		
-		
 
 		$data = $this->Message->find('all',array(
 			'conditions' =>	array('OR' => array(
@@ -103,7 +112,9 @@ class MessagesController extends AppController {
 		    ));
 		debug($total);*/
 		
-		
+		$pictures = $this->Message->User->Pic->find('list');
+		$users = $this->Message->User->findAllById($connectedid);
+		$this->set(compact('users', 'pictures'));
 
 		$this->set('messages', $data);
 	}
